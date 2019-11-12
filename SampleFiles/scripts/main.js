@@ -4,20 +4,26 @@ const StarTrekTweet = {
     text: 'Welcome to the OFFICIAL Star Trek Twitter Page!'
 }
 
-const links = ['https://twitter.com/StarTrek', 'https://twitter.com/StarTrek', 'https://hips.hearstapps.com/digitalspyuk.cdnds.net/18/26/1530003551-star-trek.jpg']
+const links = ['https://twitter.com/nytimes', 'https://twitter.com/StarTrek', 'https://hips.hearstapps.com/digitalspyuk.cdnds.net/18/26/1530003551-star-trek.jpg']
 
 const modifyText = () => {
   //Change the text of message2 to be the message of the StarTrekTweet object
   //Change the text of user2 to be the handle from the StarTrekTweet object
   //Changes the text of message 2 class to be the handle from the StarTrekTweet object
   // YOUR CODE BELOW THIS LINE.
+  document.getElementById('message2').innerHTML = StarTrekTweet.text;
+  document.querySelector('#user2').innerHTML = StarTrekTweet.handle;
+  document.querySelector('#link2').innerHTML = StarTrekTweet.name;
 }
 
-const changeLinkAndImageAttributes = () => {
+const changeLinkAndImageAttributes = function() {
   //Set the href attribute for link1 to point to the first element in the links array
   //Sets the href attribute for link2 to point to the second element in the links array
   //Sets the src attribute for the Ohlone image to point to the third element in the links array
   // YOUR CODE BELOW THIS LINE.
+  document.getElementById('link1').href = links[0];
+  document.getElementById('link2').href = links[1];
+  document.getElementById('Ohlone').src = links[2];
 }
 
 const changeClassAttribute = () => {
@@ -25,7 +31,7 @@ const changeClassAttribute = () => {
   //function so that it replaces the “tweet” class with the “tweet-pink” class for the two tweets.
   // change id="tweet1" class="tweet" to id="tweet1" class="tweet-pink"
   // YOUR CODE BELOW THIS LINE
-  
+  document.getElementById('tweet1').className = 'tweet-pink';
 }
 
 const appendElements = () => {
@@ -35,5 +41,12 @@ const appendElements = () => {
   //points to an image of your choice,symbolizing something about the course.
   //id="tweet1"
   // YOUR CODE BELOW THIS LINE
+  const newLink = document.createElement('a');
+  newLink.href = 'http://www.ohlone.edu';
+  newLink.appendChild(document.createTextNode('Intro to JavaScript'));
+  document.getElementById('tweet1').appendChild(newLink);
 
+  const img = document.createElement('img');
+  img.src = 'https://i.kym-cdn.com/entries/icons/original/000/027/475/Screen_Shot_2018-10-25_at_11.02.15_AM.png';
+  document.getElementById('tweet1').appendChild(img);
 }
